@@ -1,3 +1,7 @@
 node_modules
 build
 *.pem
+
+# env files
+.env*.local
+.env
