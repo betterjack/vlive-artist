@@ -1,14 +1,12 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
-
 import Routes from "./Routes";
+import RouteChangeTracker from "./RouteChangeTracker";
 
 const App = (props) => {
-
+  RouteChangeTracker();
+  
   return (
-    <BrowserRouter>
       <Routes />
-    </BrowserRouter>
   );
 };
 
