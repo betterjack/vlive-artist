@@ -20,6 +20,8 @@ const RouteChangeTracker = () => {
       ReactGA.pageview(location.pathname + location.search);
     }
   }, [initialized, location]);
+
+  return <></>;
 };
 
 export default RouteChangeTracker;

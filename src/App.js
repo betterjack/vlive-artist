@@ -3,10 +3,12 @@ import Routes from "./Routes";
 import RouteChangeTracker from "./RouteChangeTracker";
 
 const App = (props) => {
-  RouteChangeTracker();
   
   return (
+    <>
+      <RouteChangeTracker/>
       <Routes />
+    </>
   );
 };
 
