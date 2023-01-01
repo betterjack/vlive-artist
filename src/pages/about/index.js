@@ -16,65 +16,41 @@ const About = () => {
           <div className="layout_content--3-hGQ">
             <div className="lnb--3RTnS -right_menu_text--23eET">
               <div className="lnb_inner--1EWFM">
-                <h2 className="lnb_pc_title--1lAio">About this project</h2>
+                <h2 className="lnb_pc_title--1lAio">이건 무슨 페이지냐</h2>
+                <a 
+                  href="https://vlivearchive.com/about"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Vlive Archive 원 소스 사이트 보기
+                </a>
               </div>
             </div>
             <div className="lnb--3RTnS -right_menu_text--23eET">
               <div style={{ paddingTop: 20, paddingBottom: 20 }}>
-                <h2>Motivation</h2>
+                <h2>왜 만들었나요?</h2>
                 <p>
-                  As we all know, V LIVE is going to be shut down at the end of
-                  2022. I wanted to preserve as many videos and features of V
-                  LIVE as possible whilst preserving the V LIVE experience.
+                  Vlive가 끝난 뒤로 누가 아카이브 페이지를 만들었는데, 오픈소스라길래 커스텀 해서 쓰려고 가져왔어요.
                 </p>
                 <p>
                   <br></br>
                 </p>
-                <h2>What groups and what content is available?</h2>
+                <h2>어떤 콘텐츠를 볼 수 있나요?</h2>
                 <p>
-                  At first the project was to archive my favourite artists. I
-                  also prioritised artists who aren't on Weverse, artists
-                  without existing archives on Google Drive or similar
-                  platforms, and nugu groups.
+                  일단은 우주소녀 위주로 정리하려하는데, 다른 그룹도 원하면 해줄지도
                 </p>
                 <p>
-                  <br></br>
                 </p>
                 <p>
-                  At the moment, only "lives" are uploaded, so pre-recorded
-                  content is not uploaded because they are usually also
-                  available on other platforms such as YouTube.
+                  일단은 라이브 콘텐츠만 업로드 되어있어요. 우쭈나 녹화로 방영된 콘텐츠는 유튜브에도 있기 때문에 가져오지 않았다고 하네요.
                 </p>
                 <br></br>
-                <h2>Can you add more groups?</h2>
+                <h2>나도 도와주고 싶어요</h2>
                 <p>
-                  My email is contact@vlivearchive.com. Feel free to get in
-                  contact about adding more groups and artists.
+                  컨택 환영..인데 뭐가 필요한지 모르겠음
                 </p>
-                <br></br>
-                <h2>Can I contribute?</h2>
                 <p>
-                  If you have videos or subtitles not on the platform, please
-                  contact me and I'll arrange for those videos to be added to
-                  the database.
-                </p>
-                <br></br>
-                <p>
-                  You can also contribute by donating on Buy Me A Coffee (for
-                  non-Australian residents) or donating on BeemIt (@jonathanlam)
-                  for Australians. My BeemIt profile picture is a snake. This
-                  will help with the costs of running this website. As you can
-                  imagine, running a global site of this scale with this many
-                  videos is expensive.
-                </p>
-                <br></br>
-                <p>
-                  For software developers, the front end is open source on
-                  GitHub at{" "}
-                  <a href="https://github.com/jonathanlam/vlive-frontend">
-                    https://github.com/jonathanlam/vlive-frontend
-                  </a>
-                  .
+                  이거 원 저자한테 기부해주세요 on Buy Me A Coffee (@jonathanlam).
                 </p>
                 <br></br>
                 <h2>Will this site be taken down?</h2>
@@ -90,9 +66,13 @@ const About = () => {
             </div>
           </div>
           <div className="layout_right--2_POD">
-            <a href="https://buymeacoffee.com/jonathanlam">
+            <a
+              href="https://www.wjsnguide.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <button type="button" className="channel_share_button--jm5Vl">
-                Buy Me A Coffee
+                우주소녀 입덕가이드
                 <svg
                   width="18"
                   height="18"
