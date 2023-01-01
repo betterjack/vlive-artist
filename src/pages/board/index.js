@@ -307,7 +307,7 @@ const ShareModal = ({ group, closeFn }) => {
 };
 
 const Board = () => {
-  const { channel_name } = useParams();
+  const channel_name = 'wjsn';
   // use axios to grab from /static/vods/${group}.json
   // loading screen
   // scrolling lazy loading?
