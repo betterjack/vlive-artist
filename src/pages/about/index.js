@@ -50,16 +50,29 @@ const About = () => {
                   컨택 환영..인데 뭐가 필요한지 모르겠음
                 </p>
                 <p>
-                  이거 원 저자한테 기부해주세요 on Buy Me A Coffee (@jonathanlam).
+                  이거 원 저자한테 기부해주세요 on&nbsp;
+                  <a
+                    href="https://buymeacoffee.com/jonathanlam"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{textDecoration: 'underline'}}
+                    >
+                    Buy Me A Coffee (@jonathanlam)
+                  </a>.
                 </p>
                 <br></br>
-                <h2>Will this site be taken down?</h2>
+                <h2>누가 만들었나요?</h2>
                 <br></br>
                 <p>
-                  This site is run independently of V LIVE servers and will not
-                  be affected by the shut down. The site is also independent of
-                  parties like Google Drive or YouTube so those companies also
-                  cannot shut down my site.
+                Jonathan Lam(@jonathanlam) 이라는 분이 원 소스를 만들었고,&nbsp;
+                <a
+                    href="https://twitter.com/bowwow5152"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{textDecoration: 'underline'}}
+                    >
+                    멍멍(@bowwow515)
+                  </a>이 2차 창작했어요.
                 </p>
                 <br></br>
               </div>

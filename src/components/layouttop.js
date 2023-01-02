@@ -19,6 +19,10 @@ const LayoutTop = () => {
     setLanguageOpen(!languageOpen);
   };
 
+  const toAbout = () => {
+    window.location.href = "/about"
+  }
+
   return (
     <>
       <div className="layout_top">
@@ -51,8 +55,8 @@ const LayoutTop = () => {
           <div className="button_area--2QGJv">
             <div className="button_wrap--3tCh_"></div>
             <div className="button_wrap--3tCh_">
-              <button type="button" className="text_button--2agm9">
-                Login
+              <button type="button" className="text_button--2agm9" onClick={toAbout}>
+                About
               </button>
             </div>
             <div className="button_wrap--3tCh_">
