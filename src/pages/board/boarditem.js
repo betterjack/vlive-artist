@@ -7,12 +7,11 @@ import SmallHeartIcon from "../../components/icons/smallheart";
 import SmallPlayIcon from "../../components/icons/smallplay";
 import { Link } from "react-router-dom";
 
-import { formatNum, FMTtimestamp, fmtMSS, get_thumbnail_ext } from "./../util";
+import { formatNum, FMTtimestamp, fmtMSS } from "./../util";
 
 const BoardItem = ({ post, artist }) => {
   const postId = post.postId;
-  const thumbnail_ext = get_thumbnail_ext(post.officialVideo.thumb);
-  const thumbnail_url = `https://vlivearchive.com/files/${artist.bucket}/${postId}/${postId}-thumb${thumbnail_ext}`;
+  const thumbnail_url = post.officialVideo.thumb;
   return (
     <>
       <li className="post_item--3Brrv -video--1s9IA">
@@ -20,7 +19,7 @@ const BoardItem = ({ post, artist }) => {
           <div className="profile_info--13f_P">
             <Link
               className="link_profile--2SQHn"
-              to={"/channel/" + artist.channel}
+              to={"/"}
             >
               <div className="profile_thumbnail--1k1fr">
                 <div
@@ -61,7 +60,7 @@ const BoardItem = ({ post, artist }) => {
             </Link>
           </div>
         </div>
-        <Link className="post_area--3dKbo" to={"/post/" + postId}>
+        <Link className="post_area--3dKbo" to={"/post/" + post.postId}>
           <div className="post_inner--3DzQ8">
             <div className="content_area--24ZuP">
               <div className="post_title--3sJDT">
@@ -148,3 +147,15 @@ const BoardItem = ({ post, artist }) => {
   );
 };
 export default BoardItem;
+
+const dummy = [
+  {
+    title: "test",
+    postId: "0QGpIkfuMTA",
+    officialVideo: "https://www.youtube.com/watch?v=QH2-TGUlwu4",
+    bucket: "vlive-wjsn",
+    author: "wjsn",
+    channel: "wjsn",
+    artist: "wjsn"
+  }
+]

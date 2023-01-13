@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Landing from "./pages/landing/index";
 import Post from "./pages/post/index";
+// import Concert from "./pages/concert/index";
 import Board from "./pages/board/index";
 import About from "./pages/about/index";
 

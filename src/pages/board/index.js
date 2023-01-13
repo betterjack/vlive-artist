@@ -3,7 +3,7 @@ import ChannelArea from "./../../components/channelarea.js";
 import ChannelInfo from "./channelinfo.js";
 import BoardItem from "./boarditem.js";
 import LayoutTop from "./../../components/layouttop.js";
-import { useParams } from "react-router";
+// import { useParams } from "react-router";
 import "../styles.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -157,7 +157,7 @@ const ShareModal = ({ group, closeFn }) => {
 
   const handleClipboardCopy = () => {
     navigator.clipboard.writeText(
-      `https%3A//www.vlivearchive.com/channel/${group}`
+      `https%3A//vlive.wjsnguide.com/`
     );
     alert("Link has been copied to clipboard");
   };
@@ -180,7 +180,7 @@ const ShareModal = ({ group, closeFn }) => {
                     class="share_button--1MvYV -facebook"
                     onClick={() =>
                       openInNewTab(
-                        `https://www.facebook.com/sharer/sharer.php?u=https%3A//www.vlivearchive.com/channel/${group}`
+                        `https://www.facebook.com/sharer/sharer.php?u=https%3A//vlive.wjsnguide.com/`
                       )
                     }
                   >
@@ -207,7 +207,7 @@ const ShareModal = ({ group, closeFn }) => {
                     class="share_button--1MvYV -twitter"
                     onClick={() =>
                       openInNewTab(
-                        `https://twitter.com/intent/tweet?text=https%3A//www.vlivearchive.com/channel/${group}`
+                        `https://twitter.com/intent/tweet?text=https%3A//vlive.wjsnguide.com/`
                       )
                     }
                   >
@@ -316,7 +316,7 @@ const Board = () => {
 
   useEffect(() => {
     axios
-      .get(`/static/vods/vods_${channel_name}.json`)
+      .get(`/static/vods/vods_${channel_name}_seola.json`)
       .then(function (response) {
         setVodList(response.data);
       })
@@ -370,7 +370,7 @@ const Board = () => {
                       </svg>
                       <Link
                         className="board_link--10CG-"
-                        to={"/channel/" + artist.channel}
+                        to={"/"}
                       >
                         {artist.name} Board<em className="blind">selected</em>
                       </Link>

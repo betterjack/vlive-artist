@@ -1,56 +1,57 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ChannelArea from "./../../components/channelarea.js";
-import Suggestions from "./suggestions.js";
+// import Suggestions from "./suggestions.js";
 import VideoContainer from "./videocontainer.js";
 import LayoutTop from "../../components/layouttop.js";
-import axios from "axios";
+// import axios from "axios";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 
-import artist_data from "../../assets/artists.json";
+// import artist_data from "../../assets/artists.json";
 
 import "../styles.css";
 
-const get_artist_data = (name) => {
-  var result = artist_data.filter((obj) => {
-    return obj.channel === name;
-  });
-  if (result.length === 0) return null;
-  return result[0];
-};
+// const get_artist_data = (name) => {
+//   var result = artist_data.filter((obj) => {
+//     return obj.channel === name;
+//   });
+//   if (result.length === 0) return null;
+//   return result[0];
+// };
 const Post = () => {
   const { post_id } = useParams();
   //const search = data.filter((board_item) => board_item.postId === post_id);
   //if (search.length === 0) return <>No post found</>;
 
-  const [search, setSearch] = useState(null);
-  useEffect(() => {
-    axios
-      .get(`https://api.vlivearchive.com/post/${post_id}`)
-      .then(function (response) {
-        setSearch(response.data);
-      })
-      .catch(function (error) {
-        console.log("wtfffff");
-      });
-  }, [post_id]);
+  // const [search, setSearch] = useState(null);
+  // useEffect(() => {
+    // axios
+    //   .get(`https://api.vlivearchive.com/post/${post_id}`)
+    //   .then(function (response) {
+    //     setSearch(response.data);
+    //   })
+    //   .catch(function (error) {
+    //     console.log("wtfffff");
+    //   });
+  //   console.log('post_id')
+  // }, [post_id]);
 
-  if (search === null) return <>loading</>;
-  if (search.length === 0) return <>not found</>;
-  const channel = search[0];
-  const post = search[1];
-  const suggestions = search[2];
+  // if (search === null) return <>loading</>;
+  // if (search.length === 0) return <>not found</>;
+  // const channel = search[0];
+  // const post = search[1];
+  // const suggestions = search[2];
 
-  const bucket_map = {
-    itzy: "vlive-itzy",
-    loona: "vlive-loona",
-    weeekly: "vlive-weeekly",
-    nuest: "vlive-nuest",
-    gidle: "vlive-gidle",
-  };
+  // const bucket_map = {
+  //   itzy: "vlive-itzy",
+  //   loona: "vlive-loona",
+  //   weeekly: "vlive-weeekly",
+  //   nuest: "vlive-nuest",
+  //   gidle: "vlive-gidle",
+  // };
 
-  const bucket = bucket_map[channel] || "vlive-other";
-  const artist = get_artist_data(channel);
+  // const bucket = bucket_map[channel] || "vlive-other";
+  // const artist = get_artist_data(channel);
 
   return (
     <>
@@ -60,7 +61,7 @@ const Post = () => {
           <div className="snb--dI3H2">
             <nav className="nav--Lwe6x">
               <div className="channel_area--3-r0f">
-                <ChannelArea artist={artist} />
+                <ChannelArea artist={dummy[0].artist} />
               </div>
               <ul className="board_group_list--3BSLj">
                 <li className="board_group_item--uTaOQ">
@@ -80,9 +81,9 @@ const Post = () => {
                       </svg>
                       <Link
                         className="board_link--10CG-"
-                        to={"/channel/" + channel}
+                        to={"/channel/" + dummy[0].channel}
                       >
-                        {artist.name} Board
+                        {dummy[0].artist} Board
                         <em className="blind">selected</em>
                       </Link>
                     </li>
@@ -95,22 +96,22 @@ const Post = () => {
           <div className="layout_content--3-hGQ">
             <div className="lnb--3RTnS -right_menu_text--23eET">
               <div className="lnb_inner--1EWFM">
-                <h2 className="lnb_pc_title--1lAio">{artist.name} Board</h2>
+                <h2 className="lnb_pc_title--1lAio">{dummy[0].artist} Board</h2>
               </div>
             </div>
             <VideoContainer
-              title={post.title}
-              postId={post.postId}
-              officialVideo={post.officialVideo}
-              bucket={bucket}
-              author={post.author}
-              channel={channel}
-              artist={artist}
+              title={dummy[0].title}
+              postId={post_id}
+              officialVideo={dummy[0].officialVideo}
+              // bucket={dummy[0].bucket}
+              author={dummy[0].author}
+              channel={dummy[0].channel}
+              artist={dummy[0].artist}
             />
           </div>
-          <div className="layout_right--2_POD">
+          {/* <div className="layout_right--2_POD">
             <Suggestions suggestions={suggestions} bucket={bucket} />
-          </div>
+          </div> */}
         </div>
       </div>
     </>
@@ -118,3 +119,15 @@ const Post = () => {
 };
 
 export default Post;
+
+const dummy = [
+  {
+    title: "test",
+    postId: "0QGpIkfuMTA",
+    officialVideo: "https://www.youtube.com/watch?v=QH2-TGUlwu4",
+    bucket: "vlive-wjsn",
+    author: "wjsn",
+    channel: "wjsn",
+    artist: "wjsn"
+  }
+]

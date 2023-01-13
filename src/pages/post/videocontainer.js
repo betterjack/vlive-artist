@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
-import ReactPlayer from "react-player";
+import React, { useState } from "react";
 import CommentIcon from "../../components/icons/comment";
 import HeartIcon from "../../components/icons/heart";
 // import subtitles_list from "../../assets/itzy_subtitles.json";
 import * as dayjs from "dayjs";
 import { Link } from "react-router-dom";
 import PostAuthorDP from "../../components/icons/postAuthorDP";
-import axios from "axios";
+// import axios from "axios";
 // import { Player } from "react-tuby";
 // import "react-tuby/css/main.css";
 
@@ -69,35 +68,35 @@ const format_date = (timestamp) => {
 const VideoContainer = ({
   postId,
   title,
-  officialVideo,
-  bucket,
+  // officialVideo,
+  // bucket,
   author,
   channel,
   artist,
 }) => {
   // format as raw number but with commas
-  const plays = officialVideo.playCount.toLocaleString();
-  const likes = officialVideo.likeCount.toLocaleString();
-  const comments = officialVideo.commentCount.toLocaleString();
-  const video_url = `https://f004.backblazeb2.com/file/${bucket}/${postId}/${postId}-video.mp4`;
+  const plays = 1
+  const likes = 1
+  const comments = 1
+  // const video_url = `https://f004.backblazeb2.com/file/${bucket}/${postId}/${postId}-video.mp4`;
 
-  const [subtitles, setSubtitles] = useState(null); // = subtitles_list[postId] || [];
+  // const [subtitles, setSubtitles] = useState(null); // = subtitles_list[postId] || [];
   const [optionsOpen, setOptionsOpen] = useState(false);
 
-  useEffect(() => {
-    axios
-      .get(`https://api.vlivearchive.com/subtitles/${postId}`)
-      .then(function (response) {
-        setSubtitles(response.data);
-      })
-      .catch(function (error) {});
-  }, [postId]);
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://api.vlivearchive.com/subtitles/${postId}`)
+  //     .then(function (response) {
+  //       setSubtitles(response.data);
+  //     })
+  //     .catch(function (error) {});
+  // }, [postId]);
 
   const handleOptions = () => {
     setOptionsOpen(!optionsOpen);
   };
 
-  if (subtitles == null) return <>Loading</>;
+  // if (subtitles == null) return <>Loading</>;
 
   return (
     <>
@@ -112,7 +111,7 @@ const VideoContainer = ({
                     style={{ width: "30px", height: "30px" }}
                   >
                     <PostAuthorDP
-                      image_url={"/static/img/dp/" + artist.channel + ".png"}
+                      image_url={"/static/img/dp/" + artist + ".png"}
                     />
                     <svg
                       width="30"
@@ -149,12 +148,12 @@ const VideoContainer = ({
                     className="writer_link--3fEhm"
                     to={"/channel/" + channel}
                   >
-                    <span className="text--3pN_c">{author.nickname}</span>
+                    <span className="text--3pN_c">{author}</span>
                   </Link>
                 </div>
                 <div className="post_info_wrap--3oPz4">
                   <span className="post_info--3AqO0">
-                    {format_date(officialVideo.createdAt)}
+                    date
                   </span>
                 </div>
               </div>
@@ -187,42 +186,15 @@ const VideoContainer = ({
           </div>
           <div className="detail_content_wrap--A4_IF">
             <div className="player_area--1jBsZ">
-              {/* <video
+              <iframe
                 width="100%"
                 height="400px"
-                crossorigin="anonymous"
-                controls
-              >
-                <source src={video_url} type="video/mp4" />
-                {subtitles.map((e) => (
-                  <track
-                    src={`https://cdn.vlivearchive.com/file/${bucket}/${e.file_name}`}
-                    kind="subtitles"
-                    srclang={e.name}
-                    label={e.name}
-                  ></track>
-                ))}
-              </video> */}
-              <ReactPlayer
-                url={video_url}
-                height="400px"
-                width="100%"
-                controls={true}
-                config={{
-                  file: {
-                    attributes: {
-                      crossOrigin: true,
-                    },
-                    tracks: subtitles.map((e) => ({
-                      kind: "subtitles",
-                      src: `https://vlivearchive.com/files/${bucket}/${e.file_name}`,
-                      srcLang: e.name,
-                      label: e.name,
-                    })),
-                  },
-                }}
-              />
-              {/* <Player src={video_url} /> */}
+                src={`https://www.youtube.com/embed/${postId}`}
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                >
+              </iframe>
             </div>
             <div className="text_area--1z8D6">
               <span className="video_title--3Vd9y">
